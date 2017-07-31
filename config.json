@@ -6,5 +6,12 @@
 		"hook_survey_complete"
 	],
 
-	"description": "This module makes it possible to embed a survey inside another web page in a way that seamlessly makes it appear as part of that page.  This includes automatic iframe height adjustment, preventing the need to scroll within the iframe.  In order to function properly, this module requires changes to the web page that is embedding the survey iframe."
+	"description": "This module makes it possible to embed a survey inside another web page in a way that seamlessly makes it appear as part of that page.  This includes automatic iframe height adjustment, preventing the need to scroll within the iframe.  In order to function properly, this module requires changes to the web page that is embedding the survey iframe.",
+
+    "authors": [
+        {
+            "name": "Mark McEver",
+            "email": "mark.mcever@vanderbilt.edu"
+        }
+    ]
 }
