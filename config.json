@@ -1,6 +1,8 @@
 {
 	"name": "Seamless Survey IFrames",
-	
+
+	"namespace": "Vanderbilt\\SeamlessSurveyIframesExternalModule",
+
 	"permissions": [
 		"hook_survey_page",
 		"hook_survey_complete"

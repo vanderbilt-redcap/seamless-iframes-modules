@@ -1,5 +1,8 @@
 <?php
-namespace ExternalModules;
+namespace Vanderbilt\SeamlessSurveyIframesExternalModule;
+
+use ExternalModules\AbstractExternalModule;
+use ExternalModules\ExternalModules;
 
 class SeamlessSurveyIframesExternalModule extends AbstractExternalModule
 {
