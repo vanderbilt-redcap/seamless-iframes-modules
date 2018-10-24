@@ -1,19 +1,19 @@
 {
-	"name": "Seamless Survey IFrames",
+	"name": "Seamless IFrames",
 
-	"namespace": "Vanderbilt\\SeamlessSurveyIframesExternalModule",
+	"namespace": "Vanderbilt\\SeamlessIframesExternalModule",
 
 	"permissions": [
-		"hook_survey_page",
-		"hook_survey_complete"
+		"redcap_every_page_top",
+		"redcap_survey_complete"
 	],
 
-	"description": "This module makes it possible to embed a survey inside another web page in a way that seamlessly makes it appear as part of that page.  This includes automatic iframe height adjustment, preventing the need to scroll within the iframe.  In order to function properly, this module requires changes to the web page that is embedding the survey iframe.",
+	"description": "Makes it possible to seamlessly embed redcap pages inside other websites so that they appear as part of that page.",
 
     "authors": [
         {
             "name": "Mark McEver",
-            "email": "datacore@vanderbilt.edu",
+            "email": "datacore@vumc.org",
 			"institution": "Vanderbilt University Medical Center"
         }
     ]
