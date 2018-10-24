@@ -10,9 +10,19 @@ class SeamlessIframesExternalModule extends AbstractExternalModule
 	{
 		?>
 		<script>
-			if(window.frameElement){
+			// Taken from: https://stackoverflow.com/questions/326069/how-to-identify-if-a-webpage-is-being-loaded-inside-an-iframe-or-directly-into-t
+			// We tried the window.frameElement method first, but that returns null in iframes when the origins are not the same.
+			function inIframe () {
+			    try {
+			        return window.self !== window.top;
+			    } catch (e) {
+			        return true;
+			    }
+			}
+
+			if(inIframe()){
 				// This object used to intialize the iframe resizer object loaded via CDN below.
-				var iFrameResizer = {
+				window.iFrameResizer = {
 					messageCallback: function(data){
 						if(data.message === 'load resources'){
 							data.resources.forEach(function(url){
@@ -51,7 +61,7 @@ class SeamlessIframesExternalModule extends AbstractExternalModule
 	{
 		?>
 		<script>
-			if(window.frameElement){
+			if(inIframe()){
 				// We're in an iframe.
 				// Hide the close survey button since it can't close the window in an iframe anyway.
 				$('button').each(function() {
