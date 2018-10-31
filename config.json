@@ -16,5 +16,14 @@
             "email": "datacore@vumc.org",
 			"institution": "Vanderbilt University Medical Center"
         }
-    ]
+    ],
+
+	"project-settings": [
+		{
+			"key": "allowed-url-prefixes",
+			"name": "<div style='max-width: 325px'><b>Allowed URL Prefixes</b> - To allow parent windows to request that an iframe load CSS or JS resources, the domain or url prefix of the containing window must be specified here.</div>",
+			"type": "text",
+			"repeatable": true
+		}
+	]
 }

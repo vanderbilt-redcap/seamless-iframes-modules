@@ -8,6 +8,9 @@ class SeamlessIframesExternalModule extends AbstractExternalModule
 {
 	function redcap_every_page_top()
 	{
+		$config = $this->getConfig();
+		$moduleName = $config['name'];
+
 		?>
 		<script>
 			// Taken from: https://stackoverflow.com/questions/326069/how-to-identify-if-a-webpage-is-being-loaded-inside-an-iframe-or-directly-into-t
@@ -25,7 +28,21 @@ class SeamlessIframesExternalModule extends AbstractExternalModule
 				window.iFrameResizer = {
 					messageCallback: function(data){
 						if(data.message === 'load resources'){
+							var allowedUrlPrefixes = <?=json_encode($this->getProjectSetting('allowed-url-prefixes'))?>;
+							if(allowedUrlPrefixes === null){
+								allowedUrlPrefixes = []
+							}
+
 							data.resources.forEach(function(url){
+								var allowed = allowedUrlPrefixes.some(function(prefix){
+									return url.indexOf(prefix) === 0
+								})
+
+								if(!allowed){
+									console.error('The following URL could not be loaded because it is not allowed in the configuration for the <?=$moduleName?> module: ', url)
+									return
+								}
+
 								var parts = url.split('?')
 								var urlWithoutParams = parts[0]
 								parts = urlWithoutParams.split('/')
