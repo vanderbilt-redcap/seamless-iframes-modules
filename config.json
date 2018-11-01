@@ -8,7 +8,7 @@
 		"redcap_survey_complete"
 	],
 
-	"description": "Makes it possible to seamlessly embed redcap pages inside other websites so that they appear as part of that page.",
+	"description": "Makes it possible to seamlessly embed REDCap pages inside other websites so that they appear as part of that page.",
 
     "authors": [
         {

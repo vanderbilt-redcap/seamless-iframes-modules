@@ -1,6 +1,6 @@
 # Seamless IFrames
 
-This module makes it possible to seamlessly embed redcap pages inside other websites so that they appear as part of that page.  This includes automatic iframe height adjustment, preventing the need to scroll within the iframe.
+This module makes it possible to seamlessly embed REDCap pages inside other websites so that they appear as part of that page.  This includes automatic iframe height adjustment, preventing the need to scroll within the iframe.
 
 ## Set Up
 
