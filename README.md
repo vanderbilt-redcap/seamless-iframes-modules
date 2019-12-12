@@ -10,19 +10,26 @@ Enable this modules on any projects that have pages that need to be embedded in 
 1. Initialize the iframe per [the getting started section documented here](https://github.com/davidjbradshaw/iframe-resizer#getting-started).  You may have to call iFrameResizer after the "load" event fires for the iframe to prevent a target origin javascript error (as shown below).
 1. Style the iframe as desired (adjust/remove borders, set the width, etc.).
 1. **Optional:** Have the parent instruct the iframe to load specified css/js urls for further customization:
-   ```
-   var iframe = jQuery('iframe')
-   iframe.on('load', function(){
-     iframe.iFrameResize({
-       initCallback: function(){
-         iframe[0].iFrameResizer.sendMessage({
-           message: 'load resources',
-           resources: [
-             'http://url.to/style.css?123',
-             'http://url.to/script.js?456'
-           ]
-         })
-       }
-     })
-   })
-   ```
+    ```
+    var options = {
+      initCallback: function (iframe) {
+          iframe.iFrameResizer.sendMessage({
+              message: 'load resources',
+              resources: [
+                'http://url.to/style.css?123',
+                'http://url.to/script.js?456'
+              ]
+          });
+      }
+    }
+
+    // Option 1 - Basic
+    iFrameResize(options, '#my-iframe')
+    
+    
+    // Option 2 - Initialize after loading to fix target origin javascript errors
+    jQuery('#my-iframe').on('load', function(){
+      iFrameResize(options, '#my-iframe')
+    })
+    
+    ```
