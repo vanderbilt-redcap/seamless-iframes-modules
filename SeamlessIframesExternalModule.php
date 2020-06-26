@@ -24,7 +24,7 @@ class SeamlessIframesExternalModule extends AbstractExternalModule
 			}
 
 			if(inIframe()){
-				// This object used to intialize the iframe resizer object loaded via CDN below.
+				// This object used to initialize the iframe resizer object loaded via CDN below.
 				window.iFrameResizer = {
 					messageCallback: function(data){
 						if(data.message === 'load resources'){
@@ -65,6 +65,19 @@ class SeamlessIframesExternalModule extends AbstractExternalModule
 									$('head').append(element)
 								}
 							})
+
+							if(<?=json_encode($this->isSurveyPage())?>){
+								// Fix a problem with the required fields popup inside iframes.
+								var requiredPopup = $('#reqPopup')
+								if(requiredPopup.length === 1){
+									requiredPopup = requiredPopup.closest('.ui-dialog')
+									requiredPopup.show()
+									requiredPopup.css({
+										top: '100px',
+										left: parseInt(requiredPopup.css('left'))/2 + 'px'
+									})
+								}
+							}
 						}
 					}
 				}
